@@ -23,13 +23,16 @@ async function findById(scheme_id) {
   const result = {
     scheme_id: data[0].scheme_id,
     scheme_name: data[0].scheme_name,
-    steps: data.map((scheme) => {
-      return {
-        step_id: scheme.step_id,
-        step_number: scheme.step_number,
-        instructions: scheme.instructions,
-      };
-    }),
+    steps:
+      data[0].length === 0
+        ? []
+        : data.map((scheme) => {
+            return {
+              step_id: scheme.step_id,
+              step_number: scheme.step_number,
+              instructions: scheme.instructions,
+            };
+          }),
   };
   return result;
 }
