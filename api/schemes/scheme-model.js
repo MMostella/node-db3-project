@@ -55,7 +55,17 @@ function findSteps(scheme_id) {
           "scheme_name": "Get Rich Quick"
         }
       ]
+
+  select
+    st.step_id, st.step_number, st.instructions, sc.scheme_name
+  from steps as st
+  join schemes as sc
+    on st.scheme_id = sc.scheme_id
   */
+  return db("steps as st")
+    .join("schemes as sc", "st.scheme_id", "sc.scheme_id")
+    .select("st.step_id", "st.step_number", "st.instructions", "sc.scheme_name")
+    .where("sc.scheme_id", scheme_id);
 }
 
 function add(scheme) {
