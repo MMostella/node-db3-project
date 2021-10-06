@@ -1,3 +1,5 @@
+const Scheme = require("./scheme-model");
+
 /*
   If `scheme_id` does not exist in the database:
 
@@ -6,7 +8,9 @@
     "message": "scheme with scheme_id <actual id> not found"
   }
 */
-const checkSchemeId = (req, res, next) => {};
+const checkSchemeId = (req, res, next) => {
+  next();
+};
 
 /*
   If `scheme_name` is missing, empty string or not a string:
@@ -16,7 +20,9 @@ const checkSchemeId = (req, res, next) => {};
     "message": "invalid scheme_name"
   }
 */
-const validateScheme = (req, res, next) => {};
+const validateScheme = (req, res, next) => {
+  next();
+};
 
 /*
   If `instructions` is missing, empty string or not a string, or
@@ -27,7 +33,9 @@ const validateScheme = (req, res, next) => {};
     "message": "invalid step"
   }
 */
-const validateStep = (req, res, next) => {};
+const validateStep = (req, res, next) => {
+  next();
+};
 
 module.exports = {
   checkSchemeId,
